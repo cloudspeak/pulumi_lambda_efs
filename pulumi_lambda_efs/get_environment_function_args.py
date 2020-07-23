@@ -1,6 +1,7 @@
 from .development_environment import DevelopmentEnvironment
 
 mount_location = "/mnt/efs"
+brew_prefix = "lambda_packages/linuxbrew"
 
 
 # Helper function for creating Lambda functions which can read libraries
@@ -35,8 +36,8 @@ def get_environment_function_args(development_environment: DevelopmentEnvironmen
         "environment": {
             "variables": {
                 "LAMBDA_PACKAGES_PATH": mount_location,
-                "LD_LIBRARY_PATH": f"/var/lang/lib:/lib64:/usr/lib64:/var/runtime:/var/runtime/lib:/var/task:/var/task/lib:/opt/lib:{mount_location}/lambda_packages/lib",
-                "PATH": f"/var/lang/bin:/usr/local/bin:/usr/bin/:/bin:/opt/bin:{mount_location}/lambda_packages/bin",
+                "LD_LIBRARY_PATH": f"/var/lang/lib:/lib64:/usr/lib64:/var/runtime:/var/runtime/lib:/var/task:/var/task/lib:/opt/lib:{mount_location}/{brew_prefix}/lib",
+                "PATH": f"/var/lang/bin:/usr/local/bin:/usr/bin/:/bin:/opt/bin:{mount_location}/{brew_prefix}/bin",
             }
         },
     }

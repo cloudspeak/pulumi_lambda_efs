@@ -32,7 +32,6 @@ example_role = iam.Role(
     }""",
 )
 
-
 iam.RolePolicyAttachment(
     "VpcAccessPolicyAttach",
     policy_arn="arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
@@ -47,8 +46,8 @@ iam.RolePolicyAttachment(
 
 example_function = lambda_.Function(
     "exampleFunction2",
-    code="lambda.zip",
-    # code="app2.zip",
+    # code="lambda.zip",
+    code="app2.zip",
     source_code_hash=filebase64sha256("lambda.zip"),
     handler="handler.lambda_handler",
     role=example_role.arn,
@@ -124,6 +123,7 @@ lambda_permission = lambda_.Permission(
     source_arn=gateway.execution_arn.apply(
         lambda execution_arn: f"{execution_arn}/*/*/*"
     ),
+    opts=ResourceOptions(depends_on=[example_function, deployment]),
 )
 
 pulumi.export("file_system_id", environment.file_system_id)

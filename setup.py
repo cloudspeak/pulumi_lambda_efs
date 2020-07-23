@@ -10,8 +10,8 @@ setup(
     long_description_content_type="text/markdown",
     url="none",
     packages=find_packages(exclude=("example")),
-    python_requires=">=3.7",
-    install_requires=["pulumi>=1.8.1", "pulumi-aws>=1.0.0",],
-    test_requires=["pulumi>=1.8.1", "pulumi-aws>=1.0.0",],
+    python_requires=">=3.6",
+    install_requires=["pulumi>=1.8.1", "pulumi-aws>=1.0.0", "importlib-resources"],
+    test_requires=["pulumi>=1.8.1", "pulumi-aws>=1.0.0", "importlib-resources"],
     test_suite="test",
 )
