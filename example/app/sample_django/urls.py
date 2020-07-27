@@ -1,7 +1,7 @@
 """sample_django URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.1/topics/http/urls/
+    https://docs.djangoproject.com/en/3.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -21,5 +21,5 @@ from .views import welcome
 
 urlpatterns = [
     url(r"^$", welcome),
-    path("admin/", admin.site.urls),
+    path('admin/', admin.site.urls),
 ]
