@@ -18,6 +18,8 @@ def main():
 
     if sys.argv[1] == "install_brew_azl":
         install_brew_azl()
+    elif sys.argv[1] == "install_pip_azl":
+        install_pip_azl()
     else:
         print_usage()
 

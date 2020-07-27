@@ -47,8 +47,8 @@ iam.RolePolicyAttachment(
 example_function = lambda_.Function(
     "exampleFunction2",
     # code="lambda.zip",
-    code="app2.zip",
-    source_code_hash=filebase64sha256("lambda.zip"),
+    code="lambda_no_deps.zip",
+    source_code_hash=filebase64sha256("lambda_no_deps.zip"),
     handler="handler.lambda_handler",
     role=example_role.arn,
     runtime="python3.8",
